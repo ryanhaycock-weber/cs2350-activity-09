@@ -73,7 +73,7 @@ function addNewCard(event)
 
     this.rest()
     document.querySelector('#cards').classList.remove('d-none')
-    document.querySelector('#myfxorm').classList.add('d-none')
+    document.querySelector('#myform').classList.add('d-none')
 
     displayCards()
 }
