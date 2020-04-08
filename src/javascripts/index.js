@@ -7,11 +7,11 @@ require.context('../stylesheets/', true, /\.(css|scss)$/i)
 //TODO
 import 'bootstrap'
 
-fucntion displayCard(c)
+function displayCard(c)
 {
    return `
-   <div class="card" data-title="${title}>
-        <img src="${c.poster}"alt="...">
+   <div class="card" data=title="${c.title}"> 
+        <img src="${c.poster} class = "card-img-top" "alt="...">
         <div class="card-body">
             <h5 class="card-title">${c.title}</h5>
             <p class="card-text">${c.description}</p>
@@ -44,7 +44,6 @@ function displayCards()
                     break
                 }
             }
-
             if(ndx != -1){
                 cards.splice(ndx, 1)
                 localStorage.setItem('cards', JSON.stringify(cards))
@@ -55,13 +54,14 @@ function displayCards()
 }
 
 
+
 function addNewCard(event)
 {
     if(event) event.preventDefault()
 
     let t = document.querySelector('#title').value
-    let t = document.querySelector('#description').value
-    let t = document.querySelector('#poster').value
+    let d = document.querySelector('#description').value
+    let p = document.querySelector('#poster').value
 
     let cards = JSON.parse(localStorage.getItem('cards') || '[]')
 
@@ -73,20 +73,20 @@ function addNewCard(event)
 
     this.rest()
     document.querySelector('#cards').classList.remove('d-none')
-    document.querySelector('#myForm').classList.add('d-none')
+    document.querySelector('#myfxorm').classList.add('d-none')
 
     displayCards()
 }
 
 document.querySelector('#new_card').onclick = function()
 {
-    document.querySelector('#myForm').classList.remove('d-none')
+    document.querySelector('#myform').classList.remove('d-none')
     document.querySelector('#cards').classList.add('d-none')
 }
 
 document.forms[0].querySelector('[type="button"]').onclick = function(){
     document.querySelector('#cards').classList.remove('d-none')
-    document.querySelector('#myForm').classList.add('d-none')
+    document.querySelector('#myform').classList.add('d-none')
 }
 
 document.forms[0].addEventListener('submit', addNewCard, false)
