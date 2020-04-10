@@ -10,7 +10,7 @@ import 'bootstrap'
 function displayCard(c)
 {
    return `
-   <div class="card" data=title="${c.title}"> 
+   <div class="card" data-table="${c.title}"> 
         <img src="${c.poster} class = "card-img-top" "alt="...">
         <div class="card-body">
             <h5 class="card-title">${c.title}</h5>
@@ -71,7 +71,7 @@ function addNewCard(event)
         localStorage.setItem('cards', JSON.stringify(cards))
     }
 
-    this.rest()
+    this.reset()
     document.querySelector('#cards').classList.remove('d-none')
     document.querySelector('#myform').classList.add('d-none')
 
